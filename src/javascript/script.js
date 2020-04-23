@@ -1,8 +1,8 @@
-(function() {
+(function () {
   /**
    *  Author: Sandrico Provo
    *  Date: January 2020
-   *  Program: Candy Game Deck
+   *  Program: Deck of Cards
    */
 
   const newCardBtn = document.querySelector('.newcard--btn');
@@ -10,7 +10,6 @@
 
   let cardDeck = {};
   let currentCard = {};
-  const previousCard = {};
   let cardsRemaining = 52;
 
   function startNewGame() {
@@ -43,11 +42,8 @@
           // display card image to screen
           document.querySelector('.current--img').src = `${currentCard.image}`;
           // display card info to screen
-          if (currentCard.value === 'QUEEN' && currentCard.suit === 'HEARTS') {
-            document.querySelector('.current--info').textContent = `PLAYING WITH THE QUEEN OF HEARTS!`;
-          } else {
-            document.querySelector('.current--info').textContent = `${currentCard.value} of ${currentCard.suit}`;
-          }
+          document.querySelector('.current--info').textContent = `${currentCard.value} of ${currentCard.suit}`;
+
         });
     }
   }

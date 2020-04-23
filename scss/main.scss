@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+// Font Import
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap");
+
+// Variables * Mixins
+@mixin setFontReg() {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+}
+
+@mixin setFontExtraBold() {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+}
+
 *,
 html,
 body {
@@ -8,92 +22,105 @@ body {
   box-sizing: border-box;
 }
 
-// Variables
-$buttonPadding: 8px 64px;
-$buttonMargin: 8px;
-$gameButton: lightblue;
-$newGameAlert: red;
-
-#wrapper {
-  width: 100vw;
+#container {
+  width: 100%;
   min-height: 100vh;
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  // Layout CSS
   display: flex;
-  margin-top: 8px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
 
-h1 {
-  text-align: center;
-}
+  h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 24px;
+    @include setFontExtraBold();
+  }
 
-.remaining {
-  margin: 12px 12px 24px 12px;
-  height: 16px;
-  text-align: center;
-}
+  p {
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 21px;
+    @include setFontReg();
+  }
 
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  .btn {
-    border-radius: 50px;
-    font-size: 16px;
-    background-color: $gameButton;
-    padding: $buttonPadding;
-    margin: $buttonMargin;
-    border: none;
-    &:focus,
-    &:active {
-      outline: none;
+  .buttons {
+    // Layout CSS
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      padding: 18px 32px;
+      margin: 8px 16px;
+      font-size: 16px;
+      display: inline-block;
+      height: 40px;
+      padding: 0 14px;
+      box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
+        0 1px 3px rgba(0, 0, 0, 0.08);
+      background: #fff;
+      border-radius: 4px;
+      border: none;
+      transition: all 0.3s ease;
+      @include setFontReg();
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
+          0 3px 6px rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    .newcard--btn:hover {
+      color: green;
+    }
+
+    .newgame--btn:hover {
+      color: red;
     }
   }
-}
 
-.newgame--btn:hover {
-  background-color: red;
-}
+  .current--cards {
+    width: 100%;
 
-.current--cards {
-  width: 40vw;
-  min-height: 60vh;
-  margin: 16px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+    // Layout CSS
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
-.card--current,
-.card--previous {
-  margin: 16px;
-  width: 230px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  .card--title,
-  .info {
-    margin: 16px;
-    text-align: center;
+    .card--current,
+    .card--previous {
+      text-align: center;
+      padding-bottom: 24px;
+
+      p:nth-child(1) {
+        @include setFontExtraBold();
+        margin: 16px 8px;
+      }
+
+      p:nth-child(2) {
+        font-size: 16px;
+        height: 24px;
+      }
+
+      img {
+        width: 80%;
+        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
+          0 3px 6px rgba(0, 0, 0, 0.08);
+        border: none;
+      }
+    }
   }
-  .card--title {
-    font-size: 1.5rem;
-  }
-}
-
-.card--previous {
-  justify-self: flex-end;
-}
-
-.card--info {
-  text-align: center;
-}
-
-.prev--info {
-  width: 200px;
-  text-align: center;
 }
