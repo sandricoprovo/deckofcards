@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+*,
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+// Variables
+$buttonPadding: 8px 64px;
+$buttonMargin: 8px;
+$gameButton: lightblue;
+$newGameAlert: red;
+
+#wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  margin-top: 8px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.remaining {
+  margin: 12px 12px 24px 12px;
+  height: 16px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  .btn {
+    border-radius: 50px;
+    font-size: 16px;
+    background-color: $gameButton;
+    padding: $buttonPadding;
+    margin: $buttonMargin;
+    border: none;
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+}
+
+.newgame--btn:hover {
+  background-color: red;
+}
+
+.current--cards {
+  width: 40vw;
+  min-height: 60vh;
+  margin: 16px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card--current,
+.card--previous {
+  margin: 16px;
+  width: 230px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  .card--title,
+  .info {
+    margin: 16px;
+    text-align: center;
+  }
+  .card--title {
+    font-size: 1.5rem;
+  }
+}
+
+.card--previous {
+  justify-self: flex-end;
+}
+
+.card--info {
+  text-align: center;
+}
+
+.prev--info {
+  width: 200px;
+  text-align: center;
+}
