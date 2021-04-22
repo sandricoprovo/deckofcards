@@ -7,7 +7,7 @@ const App: React.FC<any> = () => {
     // Return html structure
     return (
         <div>
-            <h1>Hello World Crazy Fast</h1>
+            <h1>Hello World</h1>
         </div>
     );
 };
