@@ -1,14 +1,15 @@
 import React from 'react';
 
-// Typed Props
+// Imported Pages
+import CandyGame from '../pages/CandyGame';
 
 // Component
-const App: React.FC<any> = () => {
+const App: React.FC = () => {
     // Return html structure
     return (
-        <div>
-            <h1>Hello World</h1>
-        </div>
+        <>
+            <CandyGame />
+        </>
     );
 };
 
