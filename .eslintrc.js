@@ -1,6 +1,7 @@
 module.exports = {
     extends: ['sandricoprovo'],
     rules: {
-        'react/prop-types': 0,
+        'react/prop-types': 'off',
+        camelcase: ['error', { properties: 'never' }],
     },
 };
