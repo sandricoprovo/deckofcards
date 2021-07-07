@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 // Imported components
-import Title from '../components/Title';
+import Title from '../components/CardDeck/Title';
 import Button from '../components/Buttons/Button';
-import Card from '../components/Card';
+import Card from '../components/CardDeck/Card';
 
 // Other Imports
 import DataService from '../DataService';

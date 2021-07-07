@@ -1,4 +1,4 @@
-import Deck from './models/Deck';
+import Deck from './types/Deck';
 
 // Collection of methods to grab decks & cards
 const dataService = {

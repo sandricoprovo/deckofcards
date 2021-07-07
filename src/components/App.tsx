@@ -1,14 +1,14 @@
 import React from 'react';
 
 // Imported Pages
-import CandyGame from '../pages/CandyGame';
+import CardDeck from '../pages/CardDeck';
 
 // Component
 const App: React.FC = () => {
 	// Return html structure
 	return (
 		<>
-			<CandyGame />
+			<CardDeck />
 		</>
 	);
 };
