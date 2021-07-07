@@ -1,13 +1,18 @@
 import React from 'react';
 
-interface Props {
-	placeHolder: string;
+interface CardProps {
+	suit: string;
+	value: string;
+	image: string;
 }
 
-const Card: React.FC<Props> = ({ placeHolder }) => {
+const Card: React.FC<CardProps> = ({ suit, value, image }) => {
+	// TODO: Update all to include card name.
 	return (
 		<div>
-			<p>{placeHolder}</p>
+			<img src={image} alt="Playing card." />
+			<p>{value}</p>
+			<p>{suit}</p>
 		</div>
 	);
 };

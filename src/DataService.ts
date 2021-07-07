@@ -1,4 +1,5 @@
-import Deck from './types/Deck';
+// Types
+import { Deck, CardPayload } from './types';
 
 // Collection of methods to grab decks & cards
 const dataService = {
@@ -10,9 +11,24 @@ const dataService = {
 		// Fetching data async
 		try {
 			// make api call
-			const apiCall = await fetch(url);
+			const newDeckID = await fetch(url);
 			// get JSON & return it from the function
-			return (await apiCall.json()) as Deck;
+			return (await newDeckID.json()) as Deck;
+		} catch (error) {
+			// return an error if one occurs
+			throw new Error(error);
+		}
+	},
+	getNewCard: async (deckID: string): Promise<CardPayload> => {
+		// API call
+		const url = `https://deckofcardsapi.com/api/deck/${deckID}/draw/?count=1
+		`;
+
+		// Fetching a new card
+		try {
+			// query api for a new card from the deck and return the payload
+			const newCard = await fetch(url);
+			return (await newCard.json()) as CardPayload;
 		} catch (error) {
 			// return an error if one occurs
 			throw new Error(error);
