@@ -1,5 +1,5 @@
 import Deck from './Deck';
 import CardPayload from './CardPayload';
-import Card from './Card';
+import CardType from './Card';
 
-export type { Deck, Card, CardPayload };
+export type { Deck, CardType, CardPayload };

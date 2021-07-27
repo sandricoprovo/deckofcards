@@ -2,14 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 
 // Imported components
 import Title from '../components/CardDeck/Title';
-import Button from '../components/Buttons/Button';
+import { NewCardButton, NewDeckButton } from '../components/Buttons';
 import Card from '../components/CardDeck/Card';
 
 // Other Imports
 import DataService from '../DataService';
 
 // Types
-import { Card as CardType } from '../types';
+import { CardPayload, CardType, Deck } from '../types';
 
 // Component
 const CandyGame: React.FC = () => {
@@ -22,8 +22,31 @@ const CandyGame: React.FC = () => {
 		image: 'N/A',
 		code: 'N/A',
 	});
-	// TODO: Add a list of all the drawn cards in order (useRef array to prev drawn cards???)
-	const drawnCards = useRef<CardType[]>([]);
+	const drawnCards = useRef<CardType[]>([]); // tracks drawn cards
+
+	// Takes a CardPayload object which has variables used to update the current card, remaining number of cards and the drawn cards array.
+	const drawNewCard = (payload: CardPayload) => {
+		// Destructure needed variables
+		const {
+			cards: [card],
+			remaining,
+		} = payload;
+
+		// Push current card to drawn cards list before updating to new card
+		if (remainingCards <= 51) drawnCards.current.unshift(currentCard);
+
+		// Update state
+		setCurrentCard(card);
+		setRemainingCards(parseInt(remaining));
+	};
+
+	const drawNewDeck = (payload: Deck) => {
+		console.log(payload);
+		// TODO:
+		// Update deck ID
+		// update remaining cards
+		// send deckID as payload to drawNewCard method
+	};
 
 	useEffect(() => {
 		// Async IIFE to get data
@@ -43,8 +66,16 @@ const CandyGame: React.FC = () => {
 				subTitle="Get a new deck of cards, and pull from the deck one card at a time."
 			/>
 			<div>
-				{/* <Button text="New Deck" /> */}
-				{/* <Button text="New Card" method={DataService.getNewCard(deckID)} /> */}
+				<NewDeckButton
+					text="New Deck"
+					getDeck={() => DataService.getNewDeck()}
+					setDeck={drawNewDeck}
+				/>
+				<NewCardButton
+					text="New Card"
+					getCard={() => DataService.getNewCard(deckID)}
+					setCard={drawNewCard}
+				/>
 			</div>
 			<div>
 				<div>
