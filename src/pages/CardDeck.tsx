@@ -44,27 +44,7 @@ const CandyGame: React.FC = () => {
 			/>
 			<div>
 				{/* <Button text="New Deck" /> */}
-				<Button
-					text="New Card"
-					method={async () => {
-						// Extract values
-						const {
-							cards: [card],
-							remaining,
-						} = await DataService.getNewCard(deckID);
-
-						// After drawing the second card, add each previously drawn card to the drawnCards array
-						if (remainingCards < 52) {
-							drawnCards.current.push(currentCard);
-						}
-
-						console.log(card, remaining, drawnCards.current);
-
-						// Update deck state
-						setCurrentCard(card);
-						setRemainingCards(parseInt(remaining));
-					}}
-				/>
+				{/* <Button text="New Card" method={DataService.getNewCard(deckID)} /> */}
 			</div>
 			<div>
 				<div>
