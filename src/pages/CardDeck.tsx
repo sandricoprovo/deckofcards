@@ -40,16 +40,25 @@ const CandyGame: React.FC = () => {
 		setRemainingCards(parseInt(remaining));
 	};
 
+	// Takes a new deckID payload and allows the user to draw a new deck by fetching a new deckID and resetting states.
 	const drawNewDeck = (payload: Deck) => {
-		console.log(payload);
-		// TODO:
-		// Update deck ID
-		// update remaining cards
-		// send deckID as payload to drawNewCard method
+		const { deck_id: newDeckId, remaining } = payload;
+		if (!newDeckId) {
+			// TODOS:
+			// return error message
+		}
+
+		// reset drawn cards useRef
+		drawnCards.current = [];
+		// Update deck ID & remaining cards
+		setDeckID(newDeckId);
+		setRemainingCards(remaining);
+		// reset current card
+		setCurrentCard({ suit: 'N/A', value: 'N/A', image: 'N/A', code: 'N/A' });
 	};
 
 	useEffect(() => {
-		// Async IIFE to get data
+		// Fetch deck data asynchronously
 		(async () => {
 			// Get query response
 			const newDeck = await DataService.getNewDeck();
