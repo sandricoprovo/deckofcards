@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Toaster, toast } from 'react-hot-toast';
 
 // Imported components
 import Title from '../components/CardDeck/Title';
@@ -26,6 +27,12 @@ const CandyGame: React.FC = () => {
 
 	// Takes a CardPayload object which has variables used to update the current card, remaining number of cards and the drawn cards array.
 	const drawNewCard = (payload: CardPayload) => {
+		// Handle 0 remaining cards
+		if (remainingCards <= 0) {
+			toast.error('No more cards.');
+			return;
+		}
+
 		// Destructure needed variables
 		const {
 			cards: [card],
@@ -42,10 +49,13 @@ const CandyGame: React.FC = () => {
 
 	// Takes a new deckID payload and allows the user to draw a new deck by fetching a new deckID and resetting states.
 	const drawNewDeck = (payload: Deck) => {
-		const { deck_id: newDeckId, remaining } = payload;
-		if (!newDeckId) {
-			// TODOS:
-			// return error message
+		const { deck_id: newDeckId, remaining, success } = payload;
+
+		// Handle errors / unsuccessful API returns
+		if (!newDeckId || success === false) {
+			// Send an error notification.
+			toast.error('Sorry I dropped the cards! Please try again.');
+			return;
 		}
 
 		// reset drawn cards useRef
@@ -70,6 +80,7 @@ const CandyGame: React.FC = () => {
 
 	return (
 		<main>
+			<Toaster position="top-center" reverseOrder={false} />
 			<Title
 				title="52 Card Deck"
 				subTitle="Get a new deck of cards, and pull from the deck one card at a time."
