@@ -2,9 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
 // Imported components
-import Title from '../components/CardDeck/Title';
+import { Title, Card } from '../components/Deck';
 import { NewCardButton, NewDeckButton } from '../components/Buttons';
-import Card from '../components/CardDeck/Card';
 
 // Other Imports
 import DataService from '../DataService';
@@ -85,6 +84,7 @@ const CandyGame: React.FC = () => {
 				title="52 Card Deck"
 				subTitle="Get a new deck of cards, and pull from the deck one card at a time."
 			/>
+			{/* Game Info */}
 			<div>
 				<NewDeckButton
 					text="New Deck"
@@ -97,6 +97,7 @@ const CandyGame: React.FC = () => {
 					setCard={drawNewCard}
 				/>
 			</div>
+			{/* Current Card */}
 			<div>
 				<div>
 					<p>Cards Remaining: {remainingCards}</p>
@@ -108,6 +109,15 @@ const CandyGame: React.FC = () => {
 						image={currentCard.image}
 					/>
 				) : null}
+			</div>
+			{/* Previous Cards */}
+			<div>
+				{drawnCards.current.length > 0
+					? drawnCards.current.map((card) => {
+							console.log(drawnCards);
+							return null;
+					  })
+					: null}
 			</div>
 		</main>
 	);
