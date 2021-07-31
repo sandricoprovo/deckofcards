@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
 // Imported components
-import { Title, Card } from '../components/Deck';
+import { Title, Card, DrawnCard } from '../components/Deck';
 import { NewCardButton, NewDeckButton } from '../components/Buttons';
 
 // Other Imports
@@ -110,15 +110,29 @@ const CandyGame: React.FC = () => {
 					/>
 				) : null}
 			</div>
-			{/* Previous Cards */}
-			<div>
-				{drawnCards.current.length > 0
-					? drawnCards.current.map((card) => {
-							console.log(drawnCards);
-							return null;
-					  })
-					: null}
-			</div>
+			{/* Table of Previous Cards */}
+			<table>
+				<thead>
+					<tr>
+						<td>Previously Drawn Cards</td>
+					</tr>
+				</thead>
+				<tbody>
+					{drawnCards.current.length > 0
+						? drawnCards.current.map((card, index) => {
+								const { suit, value } = card;
+
+								return (
+									<DrawnCard
+										key={`${value}_${suit}_${index}`}
+										value={value}
+										suit={suit}
+									/>
+								);
+						  })
+						: null}
+				</tbody>
+			</table>
 		</main>
 	);
 };
