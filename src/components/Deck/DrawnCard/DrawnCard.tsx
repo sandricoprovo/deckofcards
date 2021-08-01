@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Other imports
+import { RowContainer } from './styles';
+
 interface DrawnCardProps {
 	suit: string;
 	value: string;
@@ -7,9 +10,9 @@ interface DrawnCardProps {
 
 const DrawnCard: React.FC<DrawnCardProps> = ({ suit, value }) => {
 	return (
-		<tr>
+		<RowContainer>
 			<td>{`${value} of ${suit}`}</td>
-		</tr>
+		</RowContainer>
 	);
 };
 

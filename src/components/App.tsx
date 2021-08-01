@@ -1,16 +1,12 @@
 import React from 'react';
 
 // Imported Pages
-import CardDeck from '../pages/CardDeck';
+import { CardDeck } from '../pages';
 
 // Component
 const App: React.FC = () => {
-	// Return html structure
-	return (
-		<>
-			<CardDeck />
-		</>
-	);
+	// Return Application
+	return <CardDeck />;
 };
 
 // Export

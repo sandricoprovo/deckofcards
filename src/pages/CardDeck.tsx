@@ -6,7 +6,16 @@ import { Title, Card, DrawnCard } from '../components/Deck';
 import { NewCardButton, NewDeckButton } from '../components/Buttons';
 
 // Other Imports
-import DataService from '../DataService';
+import DataService from '../utils/DataService';
+import GlobalStyles from '../components/GlobalStyles';
+import {
+	DeckContainer,
+	DeckInfo,
+	DeckState,
+	CurrentCardContainer,
+	PrevCardsContainer,
+	DeckActions,
+} from '../components/Deck/styles';
 
 // Types
 import { CardPayload, CardType, Deck } from '../types';
@@ -78,62 +87,69 @@ const CandyGame: React.FC = () => {
 	}, []);
 
 	return (
-		<main>
-			<Toaster position="top-center" reverseOrder={false} />
-			<Title
-				title="52 Card Deck"
-				subTitle="Get a new deck of cards, and pull from the deck one card at a time."
-			/>
-			{/* Game Info */}
-			<div>
-				<NewDeckButton
-					text="New Deck"
-					getDeck={() => DataService.getNewDeck()}
-					setDeck={drawNewDeck}
-				/>
-				<NewCardButton
-					text="New Card"
-					getCard={() => DataService.getNewCard(deckID)}
-					setCard={drawNewCard}
-				/>
-			</div>
-			{/* Current Card */}
-			<div>
-				<div>
-					<p>Cards Remaining: {remainingCards}</p>
-				</div>
-				{currentCard.suit !== 'N/A' ? (
-					<Card
-						suit={currentCard.suit}
-						value={currentCard.value}
-						image={currentCard.image}
+		<>
+			<GlobalStyles />
+			<DeckContainer>
+				<Toaster position="top-center" reverseOrder={false} />
+				{/* Game Info */}
+				<DeckInfo>
+					<Title
+						title="52 Card Deck"
+						subTitle="Get a new deck of cards, and pull from the deck one card at a time."
 					/>
-				) : null}
-			</div>
-			{/* Table of Previous Cards */}
-			<table>
-				<thead>
-					<tr>
-						<td>Previously Drawn Cards</td>
-					</tr>
-				</thead>
-				<tbody>
-					{drawnCards.current.length > 0
-						? drawnCards.current.map((card, index) => {
-								const { suit, value } = card;
+					<DeckActions>
+						<NewDeckButton
+							text="New Deck"
+							getDeck={() => DataService.getNewDeck()}
+							setDeck={drawNewDeck}
+						/>
+						<NewCardButton
+							text="New Card"
+							getCard={() => DataService.getNewCard(deckID)}
+							setCard={drawNewCard}
+						/>
+					</DeckActions>
+				</DeckInfo>
+				{/* Deck State */}
+				<DeckState>
+					<div>
+						<p>Cards Remaining: {remainingCards}</p>
+					</div>
+				</DeckState>
+				<CurrentCardContainer>
+					{currentCard.suit !== 'N/A' ? (
+						<Card
+							suit={currentCard.suit}
+							value={currentCard.value}
+							image={currentCard.image}
+						/>
+					) : null}
+				</CurrentCardContainer>
+				{/* Table of Previous Cards */}
+				<PrevCardsContainer>
+					<thead>
+						<tr>
+							<td>Previously Drawn Cards</td>
+						</tr>
+					</thead>
+					<tbody>
+						{drawnCards.current.length > 0
+							? drawnCards.current.map((card, index) => {
+									const { suit, value } = card;
 
-								return (
-									<DrawnCard
-										key={`${value}_${suit}_${index}`}
-										value={value}
-										suit={suit}
-									/>
-								);
-						  })
-						: null}
-				</tbody>
-			</table>
-		</main>
+									return (
+										<DrawnCard
+											key={`${value}_${suit}_${index}`}
+											value={value}
+											suit={suit}
+										/>
+									);
+							  })
+							: null}
+					</tbody>
+				</PrevCardsContainer>
+			</DeckContainer>
+		</>
 	);
 };
 

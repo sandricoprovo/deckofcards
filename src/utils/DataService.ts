@@ -1,5 +1,5 @@
 // Types
-import { Deck, CardPayload } from './types';
+import { Deck, CardPayload } from '../types';
 
 // Collection of methods to grab decks & cards
 const dataService = {

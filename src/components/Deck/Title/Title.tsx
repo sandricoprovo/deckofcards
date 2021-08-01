@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Other Imports
+import { TitleContainer, TitleText, SubText } from './styles';
+
 interface Props {
 	title: string;
 	subTitle: string;
@@ -8,10 +11,10 @@ interface Props {
 // Component
 const Title: React.FC<Props> = ({ title, subTitle }) => {
 	return (
-		<div>
-			<h1>{title}</h1>
-			<p>{subTitle}</p>
-		</div>
+		<TitleContainer>
+			<TitleText>{title}</TitleText>
+			<SubText>{subTitle}</SubText>
+		</TitleContainer>
 	);
 };
 
