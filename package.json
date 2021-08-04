@@ -1,0 +1,55 @@
+{
+	"name": "deckofcards",
+	"productName": "Deck of Cards",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "snowpack dev",
+		"build": "snowpack build",
+		"tsc-init": "tsc --init",
+		"tsc-watch": "tsc -noEmit"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sandricoprovo/deckofcards.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/sandricoprovo/deckofcards/issues"
+	},
+	"homepage": "https://github.com/sandricoprovo/deckofcards#readme",
+	"devDependencies": {
+		"@snowpack/plugin-babel": "^2.1.7",
+		"@snowpack/plugin-react-refresh": "^2.4.2",
+		"@snowpack/plugin-typescript": "^1.2.1",
+		"@snowpack/plugin-webpack": "^2.3.1",
+		"@typescript-eslint/eslint-plugin": "^4.22.0",
+		"@typescript-eslint/parser": "^4.22.0",
+		"babel-eslint": "^10.1.0",
+		"eslint": "^7.24.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-config-prettier": "^6.15.0",
+		"eslint-config-sandricoprovo": "^2.0.1",
+		"eslint-plugin-html": "^6.1.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-prettier": "^3.4.0",
+		"eslint-plugin-react": "^7.23.2",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"prettier": "^2.2.1",
+		"snowpack": "^3.3.5",
+		"typescript": "^4.2.4"
+	},
+	"dependencies": {
+		"@types/react": "^17.0.3",
+		"@types/react-dom": "^17.0.3",
+		"@types/styled-components": "^5.1.11",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-hot-toast": "^2.1.0",
+		"styled-components": "^5.3.0"
+	}
+}
