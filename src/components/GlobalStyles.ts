@@ -48,8 +48,11 @@ const GlobalStyles = createGlobalStyle`
 	/* ===== Design System ===== */
 	/* Colors */
 	--background: var(--black-shade-10);
+	--title-background: var(--black-tint-40);
 	--table-background: var(--slateGray-shade-40);
 	--table-row-background: var(--slateGray-shade-30);
+	--newDeckButton-background: var(--redSalsa);
+	--newCardButton-background: var(--darkTurquoise);
 	/* Font-Scale */
 	--header-1: var(--type-scale-90);
 	--header-2: var(--type-scale-80);

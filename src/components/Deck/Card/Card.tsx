@@ -1,5 +1,9 @@
 import React from 'react';
 
+// Other Imports
+import { CardContainer } from './styles';
+
+// Card Props
 interface CardProps {
 	suit: string;
 	value: string;
@@ -9,11 +13,10 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ suit, value, image }) => {
 	// TODO: Update all to include card name.
 	return (
-		<div>
-			<img src={image} alt="Playing card." />
-			<p>{value}</p>
-			<p>{suit}</p>
-		</div>
+		<CardContainer>
+			<p>{`${value} ${suit}`}</p>
+			<img src={image} alt={`${value} of ${suit} playing card.`} />
+		</CardContainer>
 	);
 };
 

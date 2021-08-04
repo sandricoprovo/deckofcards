@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 
 export const DeckContainer = styled.main`
-	border: 2px solid white;
 	width: 100vw;
 	height: 100vh;
 	background-color: var(--background);
 	color: var(--white);
-	padding: 1.5rem;
+	padding: 1rem 1.5rem;
 	display: grid;
 	gap: 0.5rem;
 	justify-content: center;
 	align-items: start;
-	grid-template-rows: 20vh 5vh 48vh 27vh;
+	grid-template-rows: 1fr 0fr 3fr 1fr;
 	grid-template-columns: 1fr;
 `;
 
@@ -25,11 +24,11 @@ export const DeckInfo = styled.section`
 
 export const DeckActions = styled.div`
 	padding: 0.8rem;
-	width: 32%;
+	width: 100%;
 	min-width: 250px;
 	max-width: 310px;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 `;
 
@@ -43,6 +42,7 @@ export const DeckState = styled.section`
 
 export const CurrentCardContainer = styled.section`
 	grid-row: 3 / span 1;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -53,7 +53,7 @@ export const PrevCardsContainer = styled.table`
 	/* border: 2px solid blue; */
 	grid-row: 4 / span 1;
 	width: 100%;
-	height: 8.625rem;
+	height: 100%;
 	overflow-y: scroll;
 	text-align: center;
 	background-color: var(--table-background);

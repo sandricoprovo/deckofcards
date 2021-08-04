@@ -3,6 +3,9 @@ import React from 'react';
 // Imported Types
 import { CardPayload } from '../../types';
 
+// Other Imports
+import { NewCardButtonContainer } from './styles';
+
 interface NewCardButtonProps {
 	text: string;
 	getCard: () => Promise<CardPayload>;
@@ -11,7 +14,7 @@ interface NewCardButtonProps {
 
 const NewCardButton: React.FC<NewCardButtonProps> = ({ text, getCard, setCard }) => {
 	return (
-		<button
+		<NewCardButtonContainer
 			type="button"
 			onClick={async () => {
 				// Perform async task to get new card & send to updater function
@@ -20,7 +23,7 @@ const NewCardButton: React.FC<NewCardButtonProps> = ({ text, getCard, setCard })
 			}}
 		>
 			{text}
-		</button>
+		</NewCardButtonContainer>
 	);
 };
 
