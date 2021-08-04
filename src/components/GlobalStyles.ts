@@ -44,11 +44,19 @@ const GlobalStyles = createGlobalStyle`
 	--type-scale-70: 2.369rem;
 	--type-scale-80: 3.157rem;
 	--type-scale-90: 4.209rem;
+	/* ===== Font Families ===== */
+	--font-reg: "Source Code Pro Regular";
+	--font-bold: "Source Code Pro Bold";
+	/* ===== Font Weights ===== */
+	--regular: 400;
+	--bold: 700;
 
 	/* ===== Design System ===== */
 	/* Colors */
+	--text: var(--white);
+	--text-blend: var(--slateGray);
 	--background: var(--black-shade-10);
-	--title-background: var(--black-tint-40);
+	--title-background: var(--slateGray-shade-40);
 	--table-background: var(--slateGray-shade-40);
 	--table-row-background: var(--slateGray-shade-30);
 	--newDeckButton-background: var(--redSalsa);
@@ -68,6 +76,7 @@ const GlobalStyles = createGlobalStyle`
 
 	html {
 		background-color: var(--background);
+		font-family: var(--font-reg);
 	};
 `;
 

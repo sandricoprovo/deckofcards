@@ -70,6 +70,8 @@ export const PrevCardsContainer = styled.table`
 		width: 100%;
 		position: sticky;
 		top: 0;
+		font-family: var(--font-bold);
+		color: var(--text-blend);
 	}
 
 	& tbody {
