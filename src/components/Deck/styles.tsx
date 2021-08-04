@@ -5,7 +5,7 @@ export const DeckContainer = styled.main`
 	height: 100vh;
 	background-color: var(--background);
 	color: var(--white);
-	padding: 1rem 1.5rem;
+	padding: 1rem;
 	display: grid;
 	gap: 0.5rem;
 	justify-content: center;
@@ -26,7 +26,7 @@ export const DeckActions = styled.div`
 	padding: 0.8rem;
 	width: 100%;
 	min-width: 250px;
-	max-width: 310px;
+	max-width: 320px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -50,7 +50,6 @@ export const CurrentCardContainer = styled.section`
 `;
 
 export const PrevCardsContainer = styled.table`
-	/* border: 2px solid blue; */
 	grid-row: 4 / span 1;
 	width: 100%;
 	height: 100%;
