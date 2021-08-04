@@ -57,6 +57,16 @@ const CandyGame: React.FC = () => {
 
 	// Takes a new deckID payload and allows the user to draw a new deck by fetching a new deckID and resetting states.
 	const drawNewDeck = (payload: Deck) => {
+		// If cards have already been drawn, ask the user if they really want to reset the deck.
+		if (remainingCards <= 51 || drawnCards.current.length >= 1) {
+			const resetDeck = window.confirm(
+				'Are you sure you want to get a new deck? Your current deck progress will be lost.'
+			);
+			// Cancel reset if answer is false
+			if (!resetDeck) return;
+		}
+
+		// Destructure variables withing payload
 		const { deck_id: newDeckId, remaining, success } = payload;
 
 		// Handle errors / unsuccessful API returns
